@@ -1,11 +1,22 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-export default function Todo({ todo }) {
+export default function Todo({ todo, onRemove }) {
+  const longPressHandler = () => {
+    onRemove(todo.id);
+  };
+
   return (
-    <View style={styles.todo}>
-      <Text>{todo.title}</Text>
-    </View>
+    <TouchableOpacity
+      // default activeOpacity={0.2}
+      activeOpacity={0.1}
+      onPress={() => console.log("Pressed", todo.id)}
+      onLongPress={longPressHandler}
+    >
+      <View style={styles.todo}>
+        <Text>{todo.title}</Text>
+      </View>
+    </TouchableOpacity>
   );
 }
 

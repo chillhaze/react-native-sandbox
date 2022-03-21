@@ -21,6 +21,7 @@ export default function addTodo({ onSubmit }) {
         onChangeText={setTodo}
         value={todo}
         placeholder="add some todo here"
+        // autoFocus
         // autoCorrect={false}
         // autoCapitalize="none"
         // keyboardType="numeric"
